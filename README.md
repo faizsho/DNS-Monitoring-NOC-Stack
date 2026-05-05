@@ -19,9 +19,9 @@ Grafana: http://IP-SERVER:3000 (User/Pass: admin/admin).
 dnsdist Web: http://IP-SERVER:8083 (Pass: admin123).
 
 📝 Custom List
-Whitelist: Tambahkan domain di /opt/blocklist/custom_whitelist.txt.
+Whitelist: Tambahkan domain di  ``/opt/blocklist/custom_whitelist.txt.``
 
-Update Manual: Jalankan bash /opt/blocklist/update-blocklist.sh.
+Update Manual: Jalankan bash `` /opt/blocklist/update-blocklist.sh.``
 
 🤝 Credits
 Script ini dikembangkan berdasarkan basis awal dari dnsdist-one-click oleh azhrimzdi dan telah dimodifikasi oleh Saya untuk kebutuhan infrastruktur yang lebih kompleks.
