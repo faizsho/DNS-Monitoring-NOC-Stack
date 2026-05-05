@@ -1,0 +1,33 @@
+1. Masukkan Rule iptables (Redirect Port 53)
+Jalankan perintah ini untuk membelokkan trafik port 53 yang dilempar oleh MikroTik agar masuk ke dnsdist lokal Anda:
+
+''' bash
+iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53
+iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53
+'''
+2. Install iptables-persistent
+Selanjutnya, kita install paket penyimpannya:
+
+'''Bash
+apt update
+apt install -y iptables-persistent'''
+Catatan Penting saat Install: Di tengah proses instalasi, layar terminal Anda biasanya akan berubah menjadi warna pink/ungu dengan pop-up dialog bertuliskan "Save current IPv4 rules?".
+
+Gunakan tombol panah kiri/kanan untuk memilih  dan tekan Enter.
+
+Jika muncul lagi untuk IPv6, pilih  juga.
+
+3. Simpan Rule Secara Permanen (Double Check)
+Untuk memastikan rule tadi benar-benar sudah terkunci ke dalam file konfigurasi dan aman dari reboot, jalankan perintah save manual ini sebagai pelengkap:
+
+Bash
+netfilter-persistent save
+netfilter-persistent reload
+4. Verifikasi Konfigurasi
+Untuk mengecek apakah rule REDIRECT Anda sudah terpasang dengan benar di tabel NAT, gunakan perintah ini:
+
+Bash
+iptables -t nat -L PREROUTING -n -v
+Outputnya seharusnya menampilkan dua baris rule yang mengarahkan protokol udp dan tcp dari dpt:53 menuju redir ports 53.
+
+Selesai! Sekarang pertahanan "Benteng DNS" Anda sudah solid dari sisi routing. Trafik dari MikroTik akan masuk ke Ubuntu, dibelokkan ke dnsdist, dioptimalkan oleh SmartDNS, dan di-resolve oleh PDNS Recursor, semuanya secara otomatis meskipun server baru saja menyala dari kondisi mati total.
