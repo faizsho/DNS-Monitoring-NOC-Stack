@@ -26,4 +26,6 @@ Update Manual: Jalankan bash `` /opt/blocklist/update-blocklist.sh.``
 🤝 Credits
 Script ini dikembangkan berdasarkan basis awal dari dnsdist-one-click oleh azhrimzdi dan telah dimodifikasi oleh Saya untuk kebutuhan infrastruktur yang lebih kompleks.
 
+
+https://github.com/azhrimzdi/dnsdist-one-click
 Developed with ❤️ for NOC Indonesia.
