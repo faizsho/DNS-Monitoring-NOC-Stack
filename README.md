@@ -28,4 +28,5 @@ Script ini dikembangkan berdasarkan basis awal dari dnsdist-one-click oleh azhri
 
 
 https://github.com/azhrimzdi/dnsdist-one-click
+
 Developed with ❤️ for NOC Indonesia.
