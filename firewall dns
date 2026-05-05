@@ -20,9 +20,10 @@ Jika muncul lagi untuk IPv6, pilih  juga.
 3. Simpan Rule Secara Permanen (Double Check)
 Untuk memastikan rule tadi benar-benar sudah terkunci ke dalam file konfigurasi dan aman dari reboot, jalankan perintah save manual ini sebagai pelengkap:
 
-Bash
+'''Bash
 netfilter-persistent save
 netfilter-persistent reload
+'''
 4. Verifikasi Konfigurasi
 Untuk mengecek apakah rule REDIRECT Anda sudah terpasang dengan benar di tabel NAT, gunakan perintah ini:
 
