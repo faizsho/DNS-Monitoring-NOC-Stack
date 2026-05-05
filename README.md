@@ -12,3 +12,20 @@ Solusi DNS Recursive tingkat tinggi yang dirancang untuk ISP/WISP dengan fitur p
 Cukup jalankan satu baris perintah di server Ubuntu Fresh Install:
 ```bash
 wget -qO- [https://raw.githubusercontent.com/faizsho/repo/main/install.sh](https://raw.githubusercontent.com/faizsho/repo/main/install.sh) | sudo bash
+```
+📊 Dashboard Access
+Grafana: http://IP-SERVER:3000 (User/Pass: admin/admin).
+
+Import Dashboard ID: 19814 atau 9682 untuk visualisasi dnsdist.
+
+dnsdist Web: http://IP-SERVER:8083 (Pass: admin123).
+
+📝 Custom List
+Whitelist: Tambahkan domain di /opt/blocklist/custom_whitelist.txt.
+
+Update Manual: Jalankan bash /opt/blocklist/update-blocklist.sh.
+
+🤝 Credits
+Script ini dikembangkan berdasarkan basis awal dari dnsdist-one-click oleh azhrimzdi dan telah dimodifikasi oleh Saya untuk kebutuhan infrastruktur yang lebih kompleks.
+
+Developed with ❤️ for NOC Indonesia.
