@@ -9,9 +9,9 @@ Solusi DNS Recursive tingkat tinggi yang dirancang untuk ISP/WISP dengan fitur p
 * **NOC Dashboard**: Monitoring trafik QPS, Latency, dan Response Code secara visual.
 
 ## 🛠️ Cara Instalasi
-Cukup jalankan satu baris perintah di server Ubuntu Fresh Install:
+Cukup jalankan satu baris perintah di server Ubuntu 24 Fresh Install:
 ```bash
-wget -qO- [https://raw.githubusercontent.com/faizsho/repo/main/install.sh](https://raw.githubusercontent.com/faizsho/repo/main/install.sh) | sudo bash
+wget -qO- https://raw.githubusercontent.com/faizsho/DNS-Monitoring-NOC-Stack/main/install.sh | sudo bash
 ```
 📊 Dashboard Access
 Grafana: http://IP-SERVER:3000 (User/Pass: admin/admin).
