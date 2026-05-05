@@ -16,8 +16,6 @@ wget -qO- [https://raw.githubusercontent.com/faizsho/repo/main/install.sh](https
 📊 Dashboard Access
 Grafana: http://IP-SERVER:3000 (User/Pass: admin/admin).
 
-Import Dashboard ID: 19814 atau 9682 untuk visualisasi dnsdist.
-
 dnsdist Web: http://IP-SERVER:8083 (Pass: admin123).
 
 📝 Custom List
