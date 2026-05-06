@@ -46,9 +46,10 @@ fuser -k 53/udp 2>/dev/null || true
 killall -9 dnsmasq 2>/dev/null || true
 killall -9 dnsdist 2>/dev/null || true
 
-# Hapus symlink resolv.conf bawaan dan buat baru
+# Hapus atribut immutable (jika dikunci provider), hapus, lalu buat baru
+chattr -i /etc/resolv.conf 2>/dev/null || true
 rm -f /etc/resolv.conf 2>/dev/null || true
-echo "nameserver 1.1.1.1" > /etc/resolv.conf
+echo "nameserver 1.1.1.1" > /etc/resolv.conf 2>/dev/null || true
 
 # ==========================================
 # 3. Konfigurasi PowerDNS Recursor (Port 5353)
