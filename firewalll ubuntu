@@ -1,3 +1,13 @@
+/ip firewall mangle
+add action=mark-routing chain=prerouting protocol=udp dst-port=53 src-address=!103.134.220.x (IP Ubuntu) new-routing-mark=to-dns
+add action=mark-routing chain=prerouting protocol=tcp dst-port=53 src-address=!103.134.220.x (IP Ubuntu) new-routing-mark=to-dns
+
+/ip route
+add distance=1 gateway=103.134.220.x (IP Ubuntu) routing-mark=to-dns
+
+
+
+
 # Aktifkan UFW
 ufw enable
 
