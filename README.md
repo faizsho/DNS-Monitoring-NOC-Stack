@@ -12,6 +12,8 @@ Solusi DNS Recursive tingkat tinggi yang dirancang untuk ISP/WISP dengan fitur p
 Cukup jalankan satu baris perintah di server Ubuntu 24 Fresh Install:
 ```bash
 wget -qO- https://raw.githubusercontent.com/faizsho/DNS-Monitoring-NOC-Stack/main/install.sh | sudo bash
+
+wget -qO- https://raw.githubusercontent.com/faizsho/DNS-Monitoring-NOC-Stack/main/install22.sh | sudo bash
 ```
 📊 Dashboard Access
 Grafana: http://IP-SERVER:3000 (User/Pass: admin/admin).
