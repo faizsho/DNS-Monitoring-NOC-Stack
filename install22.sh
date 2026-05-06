@@ -22,7 +22,8 @@ echo -e "${CYAN}Starting Installation for Ubuntu 22.04...${NC}"
 # ==========================================
 echo -e "${YELLOW}Installing base dependencies...${NC}"
 apt-get update -yq
-apt-get install -yq dnsdist pdns-recursor freecdb curl wget prometheus prometheus-node-exporter apt-transport-https software-properties-common gnupg2
+# Tambahkan psmisc untuk fitur killall/fuser
+apt-get install -yq dnsdist pdns-recursor freecdb curl wget prometheus prometheus-node-exporter apt-transport-https software-properties-common gnupg2 psmisc
 
 # Install Grafana dari Repositori Resmi
 mkdir -p /etc/apt/keyrings/
@@ -32,13 +33,22 @@ apt-get update -yq
 apt-get install -yq grafana
 
 # ==========================================
-# 2. Bebaskan Port 53 dari systemd-resolved
+# 2. Bebaskan Port 53 Secara Brutal (Anti-Gagal)
 # ==========================================
-echo -e "${YELLOW}Freeing up Port 53...${NC}"
+echo -e "${YELLOW}Freeing up Port 53 (Aggressive Cleanup)...${NC}"
+# Matikan systemd-resolved
 systemctl stop systemd-resolved 2>/dev/null || true
 systemctl disable systemd-resolved 2>/dev/null || true
+
+# Bunuh paksa semua proses yang nyangkut di Port 53 UDP/TCP
+fuser -k 53/tcp 2>/dev/null || true
+fuser -k 53/udp 2>/dev/null || true
+killall -9 dnsmasq 2>/dev/null || true
+killall -9 dnsdist 2>/dev/null || true
+
+# Hapus symlink resolv.conf bawaan dan buat baru
 rm -f /etc/resolv.conf 2>/dev/null || true
-echo "nameserver 1.1.1.1" > /etc/resolv.conf 2>/dev/null || true
+echo "nameserver 1.1.1.1" > /etc/resolv.conf
 
 # ==========================================
 # 3. Konfigurasi PowerDNS Recursor (Port 5353)
