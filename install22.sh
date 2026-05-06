@@ -57,11 +57,7 @@ webserver=yes
 webserver-address=127.0.0.1
 webserver-port=8082
 api-key=superrahasia
-
-# Pakai titik koma (;) untuk memisahkan IP
 forward-zones-recurse=.=8.8.8.8;1.1.1.1
-
-# Keamanan tambahan agar tidak ditolak sistem
 setuid=pdns
 setgid=pdns
 EOF
@@ -89,10 +85,10 @@ prefetch-domain yes
 serve-expired yes
 serve-expired-ttl 86400
 
-# Upstream 1: Local PDNS Recursor (Ubah ke port 5300)
+# Upstream 1: Local PDNS Recursor (Port 5300)
 server 127.0.0.1:5300
 
-# Upstream 2: Quad9 DoT (Sangat Cepat)
+# Upstream 2: Quad9 DoT
 server-tls 9.9.9.9:853 -host-name dns.quad9.net
 
 # Upstream 3: Cloudflare DoT
@@ -177,7 +173,6 @@ build_cdb() {
 build_cdb "$WORKDIR/whitelist_sources.txt" "$WORKDIR/custom_whitelist.txt" "$WORKDIR/whitelist.cdb" "whitelist"
 build_cdb "$WORKDIR/sources.txt" "" "$WORKDIR/domains.cdb" "blocklist"
 
-# Meredam error palsu reloadConfig
 dnsdist -c -e "reloadConfig" >/dev/null 2>&1 || true
 EOF
 
@@ -207,7 +202,6 @@ EOF
 # ==========================================
 echo -e "${YELLOW}Restarting Services...${NC}"
 systemctl enable --now pdns-recursor smartdns dnsdist prometheus grafana-server
-# Tambahkan || true agar script tidak langsung mati jika ada service yang sedikit rewel saat start awal
 systemctl restart pdns-recursor smartdns dnsdist prometheus grafana-server || true
 
 echo -e "${GREEN}====================================================${NC}"
