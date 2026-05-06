@@ -58,6 +58,10 @@ webserver-address=127.0.0.1
 webserver-port=8082
 api-key=superrahasia
 forward-zones-recurse=.=8.8.8.8,1.1.1.1
+
+# Keamanan tambahan agar tidak ditolak sistem
+setuid=pdns
+setgid=pdns
 EOF
 
 # ==========================================
