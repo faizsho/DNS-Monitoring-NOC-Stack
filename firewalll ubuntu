@@ -1,0 +1,42 @@
+# Aktifkan UFW
+ufw enable
+
+# Izinkan SSH (Biar gak terkurung di luar)
+ufw allow 22/tcp
+
+# Izinkan Traffic DNS (Penting!)
+ufw allow 53/udp
+ufw allow 53/tcp
+
+# Izinkan Dashboard Grafana & dnsdist
+ufw allow 3000/tcp
+ufw allow 8083/tcp
+
+# Cek hasilnya
+ufw status
+
+
+sudo nano /etc/sysctl.conf
+
+
+net.ipv4.ip_forward=1
+net.ipv4.conf.all.rp_filter=0
+net.ipv4.conf.default.rp_filter=0
+
+
+sudo sysctl -p
+
+```
+nano/etc/ufw/before.rules
+
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53
+-A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53
+COMMIT
+
+```
+Pastikan saja rule ini diletakkan di paling atas setelah header komentar, sebelum section *filter.
+
+sudo ufw allow 53
+sudo ufw reload
