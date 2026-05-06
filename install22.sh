@@ -37,7 +37,8 @@ apt-get install -yq grafana
 echo -e "${YELLOW}Freeing up Port 53...${NC}"
 systemctl stop systemd-resolved 2>/dev/null || true
 systemctl disable systemd-resolved 2>/dev/null || true
-echo "nameserver 1.1.1.1" > /etc/resolv.conf
+rm -f /etc/resolv.conf 2>/dev/null || true
+echo "nameserver 1.1.1.1" > /etc/resolv.conf 2>/dev/null || true
 
 # ==========================================
 # 3. Konfigurasi PowerDNS Recursor (Port 5353)
