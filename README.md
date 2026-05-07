@@ -9,6 +9,7 @@ Solusi DNS Recursive tingkat tinggi yang dirancang untuk ISP/WISP dengan fitur p
 * **NOC Dashboard**: Monitoring trafik QPS, Latency, dan Response Code secara visual.
 
 ![Grafana Dashboard](/img/simple dashboard.png)
+---
 
 ## 🛠️ Cara Instalasi
 Cukup jalankan satu baris perintah di server Ubuntu 24 Fresh Install:
