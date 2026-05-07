@@ -8,6 +8,8 @@ Solusi DNS Recursive tingkat tinggi yang dirancang untuk ISP/WISP dengan fitur p
 * **SafeSearch**: Otomatis mengaktifkan Restricted Mode pada Google dan YouTube di level jaringan.
 * **NOC Dashboard**: Monitoring trafik QPS, Latency, dan Response Code secara visual.
 
+![Grafana Dashboard](img/simple dashboard.png)
+
 ## 🛠️ Cara Instalasi
 Cukup jalankan satu baris perintah di server Ubuntu 24 Fresh Install:
 ```bash
