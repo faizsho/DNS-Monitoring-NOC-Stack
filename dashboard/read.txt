@@ -1,0 +1,10 @@
+1. Buat File Dashboard Gabungan
+
+Buat file baru, misalnya main_dashboard.py
+Kemudian kemudian copy fila dashboardnya
+
+2. Eksekusi Dashboard Baru
+kemudina bisa masukan perintah
+nohup python3 main_dashboard.py &
+
+3. Dan jangan lupa allow port dashboardnya
