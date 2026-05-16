@@ -11,6 +11,9 @@ Solusi DNS Recursive tingkat tinggi yang dirancang untuk ISP/WISP dengan fitur p
 ![Grafana Dashboard](/img/ds.PNG)
 ---
 
+![Grafana Dashboard](/img/Dashboard.png)
+---
+
 ## 🛠️ Cara Instalasi
 Cukup jalankan satu baris perintah di server Ubuntu 24 Fresh Install:
 ```bash
